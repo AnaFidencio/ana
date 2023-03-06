@@ -1,4 +1,4 @@
-<script>
+<script setup>
     // Lógica do componente
  //   export default {
   // data() {
@@ -22,9 +22,7 @@
  //  }
 // }
 //
-</script>
 
-<script setup>
 import {onMounted, ref }from 'vue'
 const contador = ref (10)
 
@@ -33,29 +31,28 @@ function incrementar(){
   console.log(contador.value)
 }
 function decrementar(){
-  if(contador.value > 0){
-  contador.value--
+  if (contador.value > 0){
+    contador.value--
   }
 }
-function resetar (){
+function resetar () {
   contador.value = 0
 }
-onMounted(()=>){
+onMounted(()=>{
   console.log('Componente montado')
   console.log('Contador: ' + contador.value)
-}
+})
 </script>
 
 <template>
   <!-- Template do componente baseado em HTML -->
-  <button @click="incrementarContador">+</button>
-  <button @click="decrementarContador">-</button>
+  <button @click="incrementar">+</button>
+  <button @click="decrementar">-</button>
   <button @click="resetar">C</button>
   <p>Valor do contador é: {{ contador }}</p>
 </template>
 
-<style escoped>
-/* Estilos do componente baseado em CSS */
+<style scoped>
 button {
 
   font-weight: bold;
